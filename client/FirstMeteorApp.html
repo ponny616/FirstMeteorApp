@@ -1,0 +1,86 @@
+<head>
+	<title>> Meteor player</title>
+</head>
+<body>
+
+	{{> wrapper}}
+
+</body>
+
+<template name="wrapper">
+	<div class="reset alpha30">
+		<h1 style="	opacity: 1;-moz-opacity: 1;filter:alpha(opacity=1);">The ( not so colorfull ) Meteor player 
+		<!-- <input type="button" value="Reset" style="float: right; margin-top:5px; margin-right: 20px" class="btn btn-primary btn-large" /> -->
+		</h1>
+	</div>
+	<hr/>
+	<div class="container content">
+
+		<div class="row-fluid">
+			<div class="span4">
+				{{> artists}}
+			</div>
+	
+			<div class="span4">
+				{{> albums}}
+			</div>
+	
+			<div class="span4">
+				{{> songs }}
+			</div>
+		</div>
+	</div>
+
+
+	{{> player }}
+
+</template>
+
+<template name="player">
+	<div id="player">
+		player zone
+	</div>
+</template>
+
+<template name="artists">
+	<h3 class="col_header">Artists ({{count}})</h3>
+	<div class="artists mCustomScrollbar _mCS_1">
+	{{#each artists}}
+			{{> artist_item}}
+	{{/each}}
+	</div>
+</template>
+
+
+<template name="artist_item">
+	<p class="{{selected}}">{{name}}</p>
+</template>
+
+<template name="albums">
+	<h3 class="col_header">Albums ({{count}})</h3>
+	<div class="albums mCustomScrollbar _mCS_2">
+		{{#each albums}}
+			{{> album_item}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="album_item">
+	<p class="{{selected}}">{{name}}</p>
+</template>
+
+
+<template name="songs">
+	<h3 class="col_header">Songs ({{count}})</h3>
+	<div class="songs mCustomScrollbar _mCS_3">
+		{{#each songs}}
+			{{>song_item}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="song_item">
+	<p class="{{selected}}">{{title}}</p>
+</template>
+
+
