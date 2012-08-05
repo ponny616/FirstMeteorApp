@@ -60,12 +60,7 @@ Template.wrapper.events = {
 /////////////////////  Artists  /////////////////////////////
 
 Template.artists.artists = function() {
-	var artist_id = Session.get("selected_artist");
-	if(!artist_id){
-		return Artists.find({}, {sort: {name: 1}});
-	}else{
-		return Artists.find({}, {sort: {name: 1}});
-	}
+	return Artists.find({}, {sort: {name: 1}});
 };
 
 Template.artists.selected = function() {
@@ -113,7 +108,12 @@ Template.albums.albums = function() {
 };
 
 Template.albums.count = function () {
-	return Albums.find({artist_id: Session.get('selected_artist')}).count();
+	var artist_id = Session.get("selected_artist");
+	if(!artist_id){
+		return Albums.find().count();
+	}else{
+		return Albums.find({artist_id: artist_id}).count();
+	}
 }
 
 Template.albums.selected = function() {
@@ -160,7 +160,23 @@ Template.songs.songs = function() {
 };
 
 Template.songs.count = function () {
-	return Songs.find().count();
+	var album_id = Session.get("selected_album");
+	var artist_id = Session.get("selected_artist");
+
+	if (!artist_id && !album_id){
+		return Songs.find().count();
+	}else if(artist_id && !album_id) {//we fetch the correspondent albums
+		// var albums = Albums.find({artist_id: artist_id}, {fields: {_id: 1}}).fetch();//array of Ids FETCH & FIELDS DOESN4T WORK
+		var albums = Albums.find({artist_id: artist_id});
+		var albums_ids = [];
+		var i = 0;
+		albums.forEach(function (album){
+			albums_ids.push(album._id);
+		});
+		return Songs.find({album_id: {$in: albums_ids}}).count();
+	}else if(artist_id && album_id){
+		return Songs.find({album_id: album_id}).count();
+	}
 }
 
 //Click on a song => selection of the correspondent artist/album

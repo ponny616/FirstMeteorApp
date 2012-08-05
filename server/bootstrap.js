@@ -6,37 +6,41 @@ Meteor.startup(function(){
 			{
 				artist: "Orelsan",
 				name: "Le chant des sirènes",
-				songs: ["Raelsan",
-				"Le chant des sirènes",
-				"Plus rien ne m'étonne",
-				"Mauvaise idée",
-				"Double vie",
-				"Finir Mal",
-				"Si seul",
-				"Des trous dans les tête",
-				"La petite marchande de clés",
-				"La terre est ronde",
-				"1990",
-				"2010",
-				"La morale",
-				"Ils sont cools",
-				"Suicide social",
-				"Elle viendra quant même"]
+				songs: [
+					["Raelsan",  "Raelsan.mp3"],
+					["Le chant des sirènes", "Le Chant Des Sirènes.mp3"],
+					["Plus rien ne m'étonne", "Plus Rien Ne M_étonne.mp3"],
+					["Mauvaise idée", "Mauvaise Idée.mp3"],
+					["Double vie", "Double Vie.mp3"],
+					["Finir Mal", "Finir Mal.mp3"],
+					["Si seul", "Si Seul.mp3"],				
+					["Des trous dans les tête", "Des Trous Dans La Tête.mp3"],
+					["La petite marchande de clés", "09 La Petite Marchande De Portes-Clefs.mp3"],
+					["La terre est ronde", "La Terre Est Ronde.mp3"],
+					["1990", "1990.mp3"],
+					["2010", "2010.mp3"],
+					["La morale", "La Morale.mp3"],
+					["Ils sont cools", "Ils Sont Cools.mp3"],
+					["Suicide social", "Suicide Social.mp3"],
+					["Elle viendra quant même", "Elle Viendra Quand Même.mp3"]
+				]
 			},
 			{
 				artist: "The xx",
 				name: "xx",
-				songs: ["Intro",
-				"VCR",
-				"Crystalised",
-				"Islands",
-				"Heard skipped at beat",
-				"Fantasy",
-				"Shelter",
-				"Basic space",
-				"Infinity",
-				"Night time",
-				"Stars"]
+				songs: [
+						["Intro", "Intro.mp3"],
+						["VCR", "Vcr.mp3"],
+						["Crystalised", "Crystalised.mp3"],
+						["Islands", "Islands.mp3"],
+						["Heard skipped at beat", "Heart Skipped A Beat.mp3"],
+						["Fantasy", "Fantasy.mp3"],
+						["Shelter", "Shelter.mp3"],
+						["Basic space", "Basic Space.mp3"],
+						["Infinity", "Infinity.mp3"],
+						["Night time", "Night Time.mp3"],
+						["Stars", "Stars.mp3"]
+					]
 			}
 		];
 		
@@ -61,7 +65,7 @@ Meteor.startup(function(){
 	    	//Add the songs for the albums
 	    	for (var j = 0; j < data[i].songs.length; j++) {
 	    		var info = data[i].songs[j];
-	    		Songs.insert({album_id: album_id, title: info, track: j});
+	    		Songs.insert({album_id: album_id, title: info[0], track: j, path: info[1]});
 	        }
 	    }
 	}

@@ -1,18 +1,18 @@
 <head>
 	<title>> Meteor player</title>
+	<link href='http://fonts.googleapis.com/css?family=Corben:bold' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Nobile' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
 	{{> wrapper}}
-
 </body>
 
 <template name="wrapper">
-	<div class="reset alpha30">
-		<h1 style="	opacity: 1;-moz-opacity: 1;filter:alpha(opacity=1);">The ( not so colorfull ) Meteor player 
+	<header class="reset alpha30">
+		<h1 style="opacity: 1;-moz-opacity: 1;filter:alpha(opacity=1);">The `Colorless Meteor player 
 		<!-- <input type="button" value="Reset" style="float: right; margin-top:5px; margin-right: 20px" class="btn btn-primary btn-large" /> -->
 		</h1>
-	</div>
+	</header>
 	<hr/>
 	<div class="container content">
 
@@ -36,25 +36,20 @@
 
 </template>
 
-<template name="player">
-	<div id="player">
-		player zone
-	</div>
-</template>
 
 <template name="artists">
-	<h3 class="col_header">Artists ({{count}})</h3>
-	<div class="artists mCustomScrollbar _mCS_1">
+	<div class="artists">
 	{{#each artists}}
 			{{> artist_item}}
 	{{/each}}
 	</div>
 </template>
 
-
 <template name="artist_item">
-	<p class="{{selected}}">{{name}}</p>
+	<p id="_id" class="{{selected}}">{{name}}</p>
 </template>
+
+
 
 <template name="albums">
 	<h3 class="col_header">Albums ({{count}})</h3>
@@ -81,6 +76,19 @@
 
 <template name="song_item">
 	<p class="{{selected}}">{{title}}</p>
+</template>
+
+<template name="player">
+	<footer id="player">
+		<div class="controllers">
+			<img src="/close_17.png"/>
+			<img src="play.jpeg" height="20" width="24" />
+			<img src="/next.png"  height="20" width="24" />
+			<div class="prev controller"></div>
+			<div class="play controller"></div>
+			<div class="next controller"></div>
+		</div>
+	</footer>
 </template>
 
 

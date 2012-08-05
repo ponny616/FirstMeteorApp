@@ -1,1 +1,97 @@
-/* CSS declarations go here */
+.reset{
+	padding: 10px 0px 18px 10px;
+	background-color: #acfa00;
+	font-family: 'Corben', Georgia, Times, serif;
+	font-size: 40px;
+	line-height: 55px;
+}
+
+body{
+	font-family: 'Nobile', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	line-height: 25px;
+
+}
+
+.alpha30 {
+	background: rgba(184, 246, 0, 0.3);
+}
+
+hr{
+	margin: 0px 0px 40px 0px;
+	height:0; 
+	border:none; 
+	border-bottom:1px solid rgba(255,255,255,0.2); 
+	border-top:1px solid rgba(0,0,0,0.9); 
+	clear:both;
+}
+
+.col_header{
+	margin: 0px 0px 20px 0px;
+}
+
+.song{
+	background-color: #fcd803;
+	color: #727272;
+}
+
+.album{
+	background-color: #0084ae;
+}
+
+.artists{}
+
+.artists .selected{
+	background-color: #f57422;
+	color: #02121a;
+	cursor: pointer;
+}
+
+.albums .selected{
+	background-color: #00bdf8;
+}
+
+.songs .selected{
+	background-color: #fcd803;
+	color: #02121a;
+	cursor: pointer;
+}
+
+p{
+	margin:0 0 5px 0;
+	font-family:Georgia,serif; 
+	font-size:17px; 
+	font-style:italic;
+	cursor: pointer;
+}
+
+#player{
+	position:absolute; 
+	bottom:0;
+	padding: 20px 0px 0px 20px;
+	height: 12%;
+	width: 100%;
+	background-color: grey;
+	color: white;
+	font-family:Georgia,serif; 
+	font-size:17px; 
+	font-style:italic;
+}
+
+#controller{
+	width: 20px;
+	height: 24px;
+}
+
+#prev{
+	background-image: url("controller/prev.png");
+}
+
+#play{
+	background-image: url("controller/play.png");
+}
+
+#next{
+	background-image: url("controller/next.png");
+
+}
