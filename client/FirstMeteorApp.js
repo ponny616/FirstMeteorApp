@@ -60,12 +60,12 @@ Template.wrapper.events = {
 /////////////////////  Artists  /////////////////////////////
 
 Template.artists.artists = function() {
-	return Artists.find({}, {sort: {name: 1}});
+	var artist_id = Session.get("selected_artist");
+	if(artist_id)
+		return Artists.find({_id: artist_id}, {sort: {name: 1}});
+	else
+		return false
 };
-
-Template.artists.count = function () {
-	return Artists.find().count();
-}
 
 Template.artists.albumlist = function(artist_id){
 	albums = Albums.find({artist_id: artist_id});
@@ -106,6 +106,15 @@ Template.artist_item.events = {
 };
 
 
+Template.player.artists = function(){
+	return Artists.find({}, {sort: {name: 1}});
+}
+
+Template.player.events = {
+	'click': function(){
+		Session.set("selected_artist", this._id);
+	}
+}
 
 //-> events&function on these artists object (selection, )
 
