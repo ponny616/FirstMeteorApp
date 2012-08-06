@@ -8,75 +8,70 @@
 </body>
 
 <template name="wrapper">
-	<header class="reset alpha30">
-		<h1 style="opacity: 1;-moz-opacity: 1;filter:alpha(opacity=1);">The `Colorless Meteor player 
-		<!-- <input type="button" value="Reset" style="float: right; margin-top:5px; margin-right: 20px" class="btn btn-primary btn-large" /> -->
-		</h1>
-	</header>
-	<hr/>
 	<div class="container content">
-
-		<div class="row-fluid">
-			<div class="span4">
-				{{> artists}}
-			</div>
-	
-			<div class="span4">
-				{{> albums}}
-			</div>
-	
-			<div class="span4">
-				{{> songs }}
-			</div>
-		</div>
+		<header class="reset alpha30">
+			<h1 style="opacity: 1;-moz-opacity: 1;filter:alpha(opacity=1);">The `Colorless Meteor player 
+			<!-- <input type="button" value="Reset" style="float: right; margin-top:5px; margin-right: 20px" class="btn btn-primary btn-large" /> -->
+			</h1>
+		</header>
+		<hr class="header"/>
+		{{> artists}}
 	</div>
-
-
-	{{> player }}
-
 </template>
 
 
 <template name="artists">
-	<div class="artists">
 	{{#each artists}}
-			{{> artist_item}}
+		<div id="#{{_id}}" class="container blocArtist">
+			<div>
+				<h1 class="artist">
+					{{name}}
+				</h1>
+			</div>
+
+				{{#if albumlist _id}}
+					{{#each albumlist _id}}
+						{{> album_item}}
+						<hr class="sep"/>
+					{{/each}}
+				{{else}}
+					<b class="errorMes">No Albums</b>
+				{{/if}}
+			</div>
+
+		</div>
 	{{/each}}
-	</div>
 </template>
 
 <template name="artist_item">
-	<p id="_id" class="{{selected}}">{{name}}</p>
-</template>
-
-
-
-<template name="albums">
-	<h3 class="col_header">Albums ({{count}})</h3>
-	<div class="albums mCustomScrollbar _mCS_2">
-		{{#each albums}}
-			{{> album_item}}
-		{{/each}}
-	</div>
-</template>
-
-<template name="album_item">
 	<p class="{{selected}}">{{name}}</p>
 </template>
 
 
-<template name="songs">
-	<h3 class="col_header">Songs ({{count}})</h3>
-	<div class="songs mCustomScrollbar _mCS_3">
-		{{#each songs}}
-			{{>song_item}}
-		{{/each}}
-	</div>
+<template name="album_item">
+			<div class="row-fluid span8">
+				<div class="span6">
+					<p class="album{{selected}}">{{name}}</p>
+				</div>
+				<div class="span6">
+					{{#if songlist _id}}
+						{{#each songlist _id}}
+							{{> song_item}}
+						{{/each}}
+					{{else}}
+						<b class="errorMes">No songs</b>
+					{{/if}}
+				</div>
+			</div>
 </template>
 
 <template name="song_item">
-	<p class="{{selected}}">{{title}}</p>
+	<p class="song {{selected}}">{{title}}</p>
 </template>
+
+
+
+
 
 <template name="player">
 	<footer id="player">

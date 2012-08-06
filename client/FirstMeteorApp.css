@@ -4,21 +4,19 @@
 	font-family: 'Corben', Georgia, Times, serif;
 	font-size: 40px;
 	line-height: 55px;
+	background: rgba(184, 246, 0, 0.3);
 }
 
 body{
 	font-family: 'Nobile', Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	line-height: 25px;
-
 }
 
-.alpha30 {
-	background: rgba(184, 246, 0, 0.3);
-}
+/****************** Line ************/
 
-hr{
-	margin: 0px 0px 40px 0px;
+hr.header{
+	margin: 0px 0px 0px 0px;
 	height:0; 
 	border:none; 
 	border-bottom:1px solid rgba(255,255,255,0.2); 
@@ -26,20 +24,28 @@ hr{
 	clear:both;
 }
 
-.col_header{
-	margin: 0px 0px 20px 0px;
+hr.sep{
+	margin-bottom: 30px;
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #b1e3ff, #3a7cc3); 
+    background-image:    -moz-linear-gradient(left, #b1e3ff, #3a7cc3); 
+    background-image:     -ms-linear-gradient(left, #b1e3ff, #3a7cc3); 
+    background-image:      -o-linear-gradient(left, #b1e3ff, #3a7cc3); 
 }
 
-.song{
-	background-color: #fcd803;
-	color: #727272;
+.blocArtist hr.sep:last-child{
+	margin-bottom: 45px;
 }
 
-.album{
-	background-color: #0084ae;
+/************** ARTIST ****************/
+.artist{
+	margin: 60px auto 60px auto;
+	text-align: center;
+	font-size: 75px;
+	font-weight: lighter;
 }
-
-.artists{}
 
 .artists .selected{
 	background-color: #f57422;
@@ -47,8 +53,21 @@ hr{
 	cursor: pointer;
 }
 
+/************** ALBUM ******************/
+.album{
+	/*margin: 20px 0px 0px 0px;*/
+	font-size: 22px;
+	font-weight:bold;
+}
+
 .albums .selected{
 	background-color: #00bdf8;
+}
+
+/************** Songs ******************/
+
+.song {
+	margin: 0px 0px 0px 0px;
 }
 
 .songs .selected{
@@ -57,12 +76,13 @@ hr{
 	cursor: pointer;
 }
 
-p{
-	margin:0 0 5px 0;
-	font-family:Georgia,serif; 
-	font-size:17px; 
-	font-style:italic;
-	cursor: pointer;
+.errorMes{
+	padding: 40px 0px 0px 10px;
+	font-style: italic;
+	display: block;
+	vertical-align: middle;
+	font-size: 15px;
+	height:100px;
 }
 
 #player{
